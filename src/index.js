@@ -1,51 +1,36 @@
 "use strict";
 /*
-Задача 1: Дано масив чисел. Перебрати масив та знайти найбільше число.
+Задача: Список студентів і вибірка одного.
+        Створіть програму для університету, яка відображатиме інформацію про студентів
+        та знаходитиме студента з найвищім середнім балом.
+
+        Декомпозиція:
+        1. Створити тип даних Student, який міститиме ім'я студента (name), курс (course), середній бал (averageGrade).
+        2. Створити масив students, що містить об'єкти типу student з даними про студентів.
+        3. Обчислити середній бал серед усіх студентів та вивести його у консоль.
+        4. Знайти студента з найвищім середнім балом, та вивести дані у консоль.
 */
-const numbers = [4, 2, 7, 1, 9, 5];
-let maxNumber = numbers[0];
-for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] > maxNumber) {
-        maxNumber = numbers[i];
-    }
-}
-console.log('Найбільший елемент масиву: ', maxNumber);
-/*
-Задача 2: Дано масив чисел. Знайти середнє значення у цьому масиві чисел.
- */
-const numbers2 = [10, 20, 30, 40, 50];
-let sum = 0;
-for (let num of numbers2) {
-    sum = sum + num;
-}
-const average = sum / numbers2.length;
-console.log("Середнє значення чисел у масиві: ", average);
-/*
-Задача 3: Дано масив чисел. Знайти перше від'ємне число у масиві.
-*/
-const numbers3 = [10, -20, 30, -40, 50];
-let firstNegative;
-for (let num of numbers2) {
-    if (num < 0) {
-        firstNegative = num;
-        break;
-    }
-}
-console.log("Перше від'ємне число у масиві: ", firstNegative);
-const item = { name: 'Футболка', price: 20 };
-const discount = 10; // 10% знижки
-const discountAmount = (item.price * discount) / 100;
-const totalCost = item.price - discountAmount;
-console.log(`Вартість покупки з урахуванням знижки: ${totalCost}$`);
-const John = { name: 'John', hourlyRate: 10 };
-const JohnAmount = John.hourlyRate * 40; // сума зарплати, яку мають виплатити Джону
-const invoice = { name: John.name, amount: JohnAmount };
-console.log(`Зарплата для ${invoice.name}: ${invoice.amount}$`);
-const books = [
-    { title: "Грокаємо алгоритми", author: "Адітья Бхаргава", price: 25 },
-    { title: "Мова програмування C++", author: "Б'ярн Страуструп", price: 20 },
-    { title: "Гаррі Поттер і філософський камінь", author: "Джоан Роулінг", price: 10 }
+const students = [
+    { name: "Марія", course: 2, averageGrade: 4.5 },
+    { name: "Іван", course: 3, averageGrade: 4.1 },
+    { name: "Олександр", course: 1, averageGrade: 4.8 }
 ];
-for (let book of books) { // змінна book на кожній ітерації приймає один об'єкт типу Book з масиву books
-    console.log(`Книга: ${book.title}. Автор: ${book.price}. Ціна: ${book.price}`);
+let totalAverage = 0; // загальний середній бал
+let highestGradeStudent = null;
+let highestAverageGrade = 0; // найвищій середній бал
+let sum = 0;
+for (let student of students) {
+    sum = sum + student.averageGrade; //після кожної ітерації, до загальної суми додається середній бал нового студента
+    if (student.averageGrade > highestAverageGrade) { // якщо середній бал студента більше ніж найбільше середнє значеня всіх балів
+        highestAverageGrade = student.averageGrade; // то найбільше середнє значення серед всіх студентів переймає цей новий бал
+        highestGradeStudent = student; // і відповідно заміняється студент з найвищим середнім балом
+    }
+}
+totalAverage = sum / students.length;
+console.log(`Середній бал серед усіх студентів: ${totalAverage}`);
+if (highestAverageGrade != null) {
+    console.log(`Студент з найвищим середнім балом: `, highestGradeStudent);
+}
+else {
+    console.log(`Студент з найвищим середнім балом не знайдений.`);
 }
