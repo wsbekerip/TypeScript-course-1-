@@ -4,9 +4,23 @@
         <meta name="viewport" content=width="device-width, initial-scale=1.0">
 
         <title>Document</title>
-        <script src="./src/index.js"></script>
+        <script src="./src/index.js" defer></script>
     </head>
 
 
-    <body></body>
+    <body>
+        <h1>Факторіал числа</h1>
+
+        <form id="factorial-form">
+            <label>
+                Введіть число:
+                <input type="number" id="number" required>
+            </label>
+
+            <button type="submit">Обчислити</button>
+        </form>
+
+
+        <ol id="factorial-steps"></ol>
+    </body>
 </html>
