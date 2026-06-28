@@ -8,5 +8,73 @@
     </head>
 
 
-    <body></body>
+    <body>
+        <h2>Введіть Ваші дані та бажаний колір сторінки</h2>
+
+        <form action="#" method="post" class="form">
+
+            <div class="form__item">
+                <label for="name" class="form__label"></label>
+                    <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Ваше ім'я"
+                            class="form__input"
+                            required
+                            title="Ім'я може містити лише літери, апостроф або дефіс"/>
+                
+            </div>
+        
+
+            <div class="form__item">
+                <label for="age" class="form__label"></label>
+                    <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            placeholder="Ваш вік"
+                            class="form__input"
+                            required/>
+                
+            </div>
+
+
+            <div class="form__item">
+                <label for="hobby"></label>
+                <input
+                        type="text"
+                        id="hobby"
+                        placeholder="Ваше хобі"
+                        required>
+            </div>
+
+
+            <div class="form__item">
+                <label for="experience"></label>
+                <input
+                        type="number"
+                        id="experience"
+                        placeholder="Досвід (років)"
+                        min="0"
+                        required>
+            </div>
+
+
+            <div class="form__item">
+                <label for="colors" class="form__label">Колір сторінки</label>
+
+                <select id="colors">
+                    <option value="blue" selected>Блакитний</option>
+                    <option value="green">Зелений</option>
+                    <option value="orange">Помаранчевий</option>
+                </select>
+            </div>
+
+
+            <button type="submit" class="form__button">Надіслати</button>
+        </form>
+
+        <div id="msg"></div>
+    </body>
 </html>
